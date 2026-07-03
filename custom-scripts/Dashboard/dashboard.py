@@ -43,7 +43,8 @@ def get_updates():
     except:
         official = 0
     try:
-        aur = subprocess.check_output(["yay", "-Qua"], stderr=subprocess.DEVNULL).decode().count('\n')
+        aur_output = subprocess.check_output(["yay", "-Qua", "--quiet"], stderr=subprocess.DEVNULL).decode().strip()
+        aur = len([line for line in aur_output.split('\n') if line])
     except:
         aur = 0
     total = official + aur

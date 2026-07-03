@@ -342,8 +342,17 @@ local rules = {
             name = "min-browser",
             match = { class = "min" },
             workspace = 1,
-            float = false,
-            border_size = 0,
+            float = true,
+            border_size = 2,
+            opacity = "0.6 override",
+            no_blur = false
+        },
+        {
+            name = "Mise-browser",
+            match = { title = "Mise" },
+            float = true,
+            move = {295, 10},
+            border_size = 2,
             opacity = "0.6 override",
             no_blur = false
         },

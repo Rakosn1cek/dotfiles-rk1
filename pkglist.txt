@@ -95,6 +95,7 @@ python-cairo
 python-pip
 python-psutil
 python-pyqt6
+python-pyqt6-webengine
 python-pywal
 python-rich
 python-textual
