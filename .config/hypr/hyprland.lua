@@ -9,7 +9,8 @@ hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_TYPE", "wayland")
 hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 hl.env("WLR_NO_HARDWARE_CURSORS", "1")
-hl.env("WLR_RENDERER_ALLOW_SOFTWARE", "1")
+-- hl.env("WLR_RENDERER_ALLOW_SOFTWARE", "1")
+hl.env("WLR_RENDERER", "gles2")
 hl.env("TERMINAL", "kitty")
 hl.env("LIBVA_DRIVER_NAME", "iHD")
 hl.env("HYPRCURSOR_THEME", "Empty-Butterfly-Yellow-vr8")
@@ -80,13 +81,13 @@ hl.config({
     },
     decoration = {
         rounding = 10,
-        active_opacity = 0.8,
+        active_opacity = 1,
         inactive_opacity = 1.0,
-        fullscreen_opacity = 0.9,
+        fullscreen_opacity = 1,
         blur = {
             enabled = true,
-            size = 4,
-            passes = 3,
+            size = 5,
+            passes = 4,
         },
         shadow = {
             enabled = true,
@@ -123,7 +124,7 @@ hl.workspace_rule({
 
 hl.workspace_rule({ 
     workspace = "3", 
-    layout = "scrolling",
+    layout = "master",
     default_name = "Files"
 })
 

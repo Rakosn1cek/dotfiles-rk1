@@ -26,6 +26,7 @@ themes=(
     "Glossy Light"
     "Retrowave Light"
     "Hacker Movie"
+    "Grass"
 )
 
 # Pipe it into fzf for interactive selection

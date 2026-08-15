@@ -1,4 +1,4 @@
--- Autostart Configuration for Hyprland v0.55
+-- Autostart Configuration for Hyprland
 -- File: ~/.config/hypr/configs/autostart.lua
 
 hl.on("hyprland.start", function () 
@@ -6,6 +6,7 @@ hl.on("hyprland.start", function ()
     -- Sequential chain to guarantee systemd recognizes the active session before any portal calls occur
     hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP && systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP && systemctl --user start graphical-session.target")
     hl.exec_cmd("/usr/lib/polkit-kde-authentication-agent-1")
+    hl.exec_cmd("udiskie &")
 
     -- 2. Theme & Wallpaper
     hl.exec_cmd("awww-daemon & sleep 0.5 && awww img $(cat ~/.cache/wal/wal)")
@@ -21,21 +22,23 @@ hl.on("hyprland.start", function ()
 
     -- 5. Apps to workspaces
     -- Start Browser on workspace 1
-    hl.exec_cmd("min")
+    -- hl.exec_cmd("min")
+    hl.exec_cmd("~/arch-projects/MiseBrowser/launch.sh")
     
     -- Start Terminal on workspace 2
     hl.exec_cmd("kitty")
 
     -- Choice of editor for workspace 3
-    -- Toggle between these by commenting out the unwanted line
     -- hl.exec_cmd("geany")
     hl.exec_cmd("kitty --class yazi -e yazi")
 
-    -- Clock Widget
-    --hl.exec_cmd("python3 ~/custom-scripts/Python-Widgets/desktop-clock.py")
+    -- Clock + Conky Widgets
+    hl.exec_cmd("python3 ~/custom-scripts/Python-Widgets/desktop-clock.py")
+    hl.exec_cmd("python3 ~/custom-scripts/Control-Panel/conky-widget.py")
+    hl.exec_cmd("python3 ~/custom-scripts/Dashboard/dashboard-widget.py")
 
     -- HyprRings
-    hl.exec_cmd("python3 ~/arch-projects/HyprRings/main.py")
+    -- hl.exec_cmd("python3 ~/arch-projects/HyprRings/main.py")
 
     -- Cursor
     hl.exec_cmd("hyprctl setcursor Empty-Butterfly-Yellow-vr8 24")

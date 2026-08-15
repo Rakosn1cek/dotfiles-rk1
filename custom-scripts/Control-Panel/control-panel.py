@@ -26,7 +26,7 @@ from PyQt6.QtGui import QIcon, QFontDatabase
 
 BAT = "/sys/class/power_supply/BAT0"
 LOG_FILE = os.path.expanduser("~/.cache/notification_history.log")
-THEME_FILE = os.path.expanduser("~/custom-scripts/Control-Panel/current-theme.css")
+THEME_FILE = os.path.expanduser("~/custom-scripts/current-theme.css")
 
 class ControlPanel(QWidget):
     def __init__(self):

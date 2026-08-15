@@ -56,6 +56,8 @@ PROMPT='%F{blue}%~%f${vcs_info_msg_0_}
 RPROMPT='%F{spatial}%D{%H:%M}%f %(?.%F{green}✓.%F{red}✗ %?)%f'
 
 figlet -f smslant Welcome Back - Rk 1
+kitten icat --align left ~/Pictures/Fastfetch/cover.png
+# kitten icat --align left ~/Pictures/Fastfetch/anime-kitty.png
 
 # --- User Configuration ---
 export LANG=en_GB.UTF-8
@@ -184,3 +186,18 @@ d() {
 # --- Oversight Security Tool ---
 source /home/rk1/.local/share/oversight/oversight.zsh
 add-zsh-hook preexec _oversight_preexec
+
+# --- Gemini-Chat ---
+gchat() {
+    # Set the path to the directory containing your project
+    local project_dir="/home/rk1/arch-projects/GeminiChat"
+    # Use the passed argument as the target directory, or default to current dir
+    local target_dir="${1:-.}"
+    # Move to the target directory
+    pushd "$target_dir" > /dev/null
+    # Activate virtual environment and run the chat script
+    source "$project_dir/venv/bin/activate"
+    python "$project_dir/gemini-chat.py"
+    # Return to the original directory
+    popd > /dev/null
+}

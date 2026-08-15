@@ -4,6 +4,14 @@
 local rules = {
     widgets = {
         {
+            name = "Power menu",
+            match = { title = "powermenu.py" },
+            float = true,
+            center = true,
+            animation = "gnomed",
+            no_blur = false
+        },
+        {
             name = "keybinds-widget",
             match = { class = "keybinds" },
             float = true,
@@ -11,7 +19,7 @@ local rules = {
             move = {585, 1},
             border_size = 2,
             border_color = "rgb(767b7e)",
-            opacity = 0.7,
+            opacity = 0.8,
             animation = "slide top"
         },
         {
@@ -22,7 +30,7 @@ local rules = {
             move = {585, 1},
             border_size = 2,
             border_color = "rgb(767b7e)",
-            opacity = 0.7,
+            opacity = 0.8,
             animation = "slide top"
         },
         {
@@ -33,7 +41,7 @@ local rules = {
             size = {1100, 700},
             border_size = 2,
             border_color = "rgb(767b7e)",
-            opacity = 0.7,
+            opacity = 0.8,
             animation = "gnomed",
             no_blur = false
         },
@@ -45,7 +53,7 @@ local rules = {
             move = {710, 0},
             border_size = 2,
             border_color = "rgb(767b7e)",
-            opacity = 0.7,
+            opacity = 0.8,
             animation = "slide top"
         },
         {
@@ -56,7 +64,7 @@ local rules = {
             move = {5, 1},
             border_size = 2,
             border_color = "rgb(767b7e)",
-            opacity = 0.7,
+            opacity = 0.8,
             animation = "slide left"
         },
         {
@@ -67,7 +75,7 @@ local rules = {
             move = {660, 0},
             border_size = 2,
             border_color = "rgb(767b7e)",
-            opacity = 0.7,
+            opacity = 0.8,
             animation = "slide top"
         },
         {
@@ -78,7 +86,7 @@ local rules = {
             move = {560, 1},
             border_size = 2,
             border_color = "rgb(767b7e)",
-            opacity = 0.7,
+            opacity = 0.8,
             animation = "slide top"
         },
         {
@@ -89,7 +97,7 @@ local rules = {
             move = {5, 0},
             border_size = 2,
             border_color = "rgb(767b7e)",
-            opacity = 0.7,
+            opacity = 0.8,
             animation = "slide left"
         },
         {
@@ -115,10 +123,10 @@ local rules = {
             name = "theme-widget",
             match = { class = "theme-widget.py" },
             float = true,
+            center = true,
             size = {550, 340},
-            move = {1370, 1},
             border_size = 0,
-            animation = "slide right"
+            animation = "gnomed"
         },
         {
             name = "kitty-themes",
@@ -172,7 +180,7 @@ local rules = {
             move = {550, 3},
             border_size = 2,
             border_color = "rgb(767b7e)",
-            opacity = 0.7,
+            opacity = 0.8,
             animation = "slide top"
         }
     },
@@ -185,7 +193,7 @@ local rules = {
             size = {1000, 450},
             border_size = 2,
             border_color = "rgb(767b7e)",
-            opacity = 0.7,
+            opacity = 0.8,
             animation = "gnomed"
         },
         {
@@ -196,7 +204,7 @@ local rules = {
             move = {500, 2},
             border_size = 2,
             border_color = "rgb(767b7e)",
-            opacity = 0.7,
+            opacity = 0.8,
             animation = "slide down"
         },
         {
@@ -207,7 +215,7 @@ local rules = {
             move = {600, 2},
             border_size = 2,
             border_color = "rgb(767b7e)",
-            opacity = 0.7,
+            opacity = 0.8,
             animation = "slide top"
         },
         {
@@ -219,15 +227,6 @@ local rules = {
             animation = "slide top"
         },
         {
-            name = "hyprdash",
-            match = { class = "hyprdash" },
-            float = true,
-            size = {1560, 1000},
-            move = {350, 40},
-            border_size = 0,
-            animation = "gnomed"
-        },
-        {
             name = "S-Bar",
             match = { title = "s-bar" },
             size = {500, 500},
@@ -237,21 +236,13 @@ local rules = {
             animation = "slide top"
         },
         {
-            name = "floating yazi",
-            match = { class = "floating_yazi" },
-            float = false,
-            center = true,
-            size = {900, 600},
-            opacity = 0.8,
-            animation = "gnomed"
-        },
-        {
             name = "Yazi-Picker",
             match = { class = "file_chooser" },
             float = true,
             center = true,
             size = {900, 600},
-            animation = "gnomed"
+            animation = "gnomed",
+            no_blur = false
         },
         {
             name = "pass-manager",
@@ -271,7 +262,8 @@ local rules = {
         {
             name = "notifications",
             match = { class = "dunst" },
-            opacity = 0.9
+            opacity = 0.9,
+            no_blur = false
         },
         {
             name = "music-player",
@@ -280,24 +272,25 @@ local rules = {
             center = true,
             size = {1000, 850},
             border_size = 0,
-            opacity = 0.7
+            opacity = 0.9
         },
         {
             name = "kitty",
             match = { class = "kitty" },
             workspace = 2,
-            float = false,
-            border_size = 0,
-            opacity = 0.7,
-            animation = "slide bottom",
-            no_blur = false
+            float = true,
+            size = {1595, 1046},
+            move = {5, 10},
+            border_size = 2,
+            animation = "gnomed",
+            no_blur = true
         },
         {
             name = "foot",
             match = { class = "foot" },
             float = true,
-            size = {1340, 1020},
-            move = {290, 30},
+            size = {1595, 1046},
+            move = {5, 10},
             border_size = 0,
             opacity = 0.8,
             no_blur = true
@@ -306,21 +299,13 @@ local rules = {
             name = "yazi",
             match = { class = "yazi" },
             workspace = 3,
-            float = false,
-            border_size = 0,
-            opacity = 0.7,
+            float = true,
+            size = {1395, 700},
+            move = {5, 10},
+            border_size = 2,
+            opacity = 0.95,
             animation = "gnomed",
-            no_blur = false
-        },
-        {
-            name = "file-managers",
-            match = { class = "thunar" },
-            workspace = 4,
-            size = {1350, 1060},
-            move = {285, 10},
-            border_size = 0,
-            opacity = 0.8,
-            animation = "fade"
+            no_blur = true
         },
         {
             name = "geany-rule",
@@ -344,17 +329,17 @@ local rules = {
             workspace = 1,
             float = true,
             border_size = 2,
-            opacity = "0.6 override",
-            no_blur = false
+            opacity = "0.8 override"
         },
         {
             name = "Mise-browser",
             match = { title = "Mise" },
+            workspace = 1,
             float = true,
-            move = {295, 10},
-            border_size = 2,
-            opacity = "0.6 override",
-            no_blur = false
+            size = {1595, 1046},
+            move = {5, 10},
+            border_size = 1,
+            no_blur = true
         },
         {
             name = "save-open-rule",
@@ -383,9 +368,14 @@ local rules = {
             blur = true
         },
         {
-            name = "HyprRings",
-            match = { namespace = "hyprrings" },
-            xray = true
+            name = "Conky",
+            match = { namespace = "conky-monitor" },
+            blur = false
+        },
+        {
+        	name = "Dashboard Widget",
+        	match = { namespace = "dashboard-widget" },
+        	blur = false 	
         }
     }
 }

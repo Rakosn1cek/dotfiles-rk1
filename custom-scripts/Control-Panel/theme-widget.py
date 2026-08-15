@@ -69,6 +69,7 @@ BG_PROFILES = {
         "text": "#ffffff",
         "hint": "#aaaaaa"
     }
+    
 }
 
 # --- Fixed Accent Color Palette Map ---
@@ -86,7 +87,8 @@ ACCENTS = {
     "Brown": "#352e12",
     "Pink": "#f25bff",
     "White": "#ffffff",
-    "Teal": "#008081"
+    "Teal": "#008081",
+    "Vintage": "#f4dcba"
 }
 
 # --- Base Application Styling ---

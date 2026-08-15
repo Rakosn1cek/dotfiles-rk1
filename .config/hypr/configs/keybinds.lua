@@ -15,7 +15,7 @@ hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exit())
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("kitty --class kitty-themes -e ~/custom-scripts/Shell-Widgets/kitty-toggle-theme"))
 hl.bind(mainMod .. "+ SHIFT + M", hl.dsp.exec_cmd("min"))
-hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("python3 $HOME/arch-projects/Mise/mise.py"))
+hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("$HOME/arch-projects/MiseBrowser/launch.sh"))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("python3 $HOME/custom-scripts/S-Bar/bar-ui.py"))
 hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd("kitty --class yazi -e yazi"))
 
@@ -27,9 +27,12 @@ hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("kitty --class bt-menu -e $HOME/custo
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("hyprpicker -a -f hex"))
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("kitty --class 'Audio Switcher' -e ~/custom-scripts/Shell-Widgets/change-audio.sh"))
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("kitty --class notif -e ~/custom-scripts/Shell-Widgets/notif.sh"))
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("python3 $HOME/custom-scripts/Control-Panel/powermenu.py"))
 
 
 -- AltMod Keybinds
+
+hl.bind(altMod .. " + Z", hl.dsp.exec_cmd("python3 $HOME/custom-scripts/Control-Panel/control-panel.py"))
 hl.bind(altMod .. " + W", hl.dsp.exec_cmd("kitty --class floating_wifi -e ~/custom-scripts/wifi/wwifi"))
 hl.bind(altMod .. " + M", hl.dsp.exec_cmd("kitty --class music --app-id=music kew"))
 hl.bind(altMod .. " + R", hl.dsp.exec_cmd("kitty --class 'Mirec' -e $HOME/arch-projects/MIREC/mirec"))
