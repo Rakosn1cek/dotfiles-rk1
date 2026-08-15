@@ -1,39 +1,39 @@
-QWidget#MainWidget { background-color: rgba(74, 74, 74, 0.6); border: 2px solid #f4dcba; }
-QFrame#Section { border: 1px solid #f4dcba; border-radius: 4px; background-color: rgba(74, 74, 74, 0.6); }
-QLabel { color: #ffffff; font-family: 'JetBrains Mono'; font-size: 14px; font-weight: 900; }
+QWidget#MainWidget { background-color: rgba(0, 0, 0, 0.4); border: 2px solid #f4dcba; }
+QFrame#Section { border: 1px solid #f4dcba; border-radius: 4px; background-color: rgba(0, 0, 0, 0.4); }
+QLabel { color: #e0e6ed; font-family: 'JetBrains Mono'; font-size: 14px; font-weight: 900; }
 QLabel#ClockLabel { color: #f4dcba; font-family: 'JetBrains Mono'; font-size: 36px; font-weight: bold; }
-QLabel#DateLabel { color: #aaaaaa; font-family: 'JetBrains Mono'; font-size: 14px; }
+QLabel#DateLabel { color: #ffffff; font-family: 'JetBrains Mono'; font-size: 14px; }
 QLabel#TempLabel { color: #f4dcba; font-family: 'JetBrains Mono'; }
-QLabel#TrackerProjectLabel { color: #ffffff; font-family: 'JetBrains Mono'; }
+QLabel#TrackerProjectLabel { color: #e0e6ed; font-family: 'JetBrains Mono'; }
 QLabel#TrackerStatusIcon { color: #f4dcba; font-family: 'JetBrains Mono'; }
-QLineEdit { background-color: rgba(74, 74, 74, 0.6); border: 1px solid #f4dcba; color: #ffffff; padding: 5px; border-radius: 4px; font-family: 'JetBrains Mono'; }
+QLineEdit { background-color: rgba(0, 0, 0, 0.4); border: 1px solid #f4dcba; color: #e0e6ed; padding: 5px; border-radius: 4px; font-family: 'JetBrains Mono'; }
 QLineEdit:focus { border: 2px solid #f4dcba; outline: none; }
-QListWidget { background-color: rgba(74, 74, 74, 0.6); border: 1px solid #f4dcba; color: #ffffff; outline: none; border-radius: 4px; font-family: 'JetBrains Mono'; }
+QListWidget { background-color: rgba(0, 0, 0, 0.4); border: 1px solid #f4dcba; color: #e0e6ed; outline: none; border-radius: 4px; font-family: 'JetBrains Mono'; }
 QListWidget::item { padding: 8px; border-bottom: 1px solid #111111; font-family: 'JetBrains Mono'; }
-QListWidget::item:selected { background-color: #f4dcba; color: rgba(74, 74, 74, 0.6); font-weight: bold; font-family: 'JetBrains Mono'; }
-QPushButton { background-color: rgba(74, 74, 74, 0.6); border: 1px solid #f4dcba; color: #ffffff; padding: 8px; font-family: 'JetBrains Mono'; font-size: 14px; border-radius: 4px; }
-QPushButton:hover { background-color: #222222; border-color: #ffffff; }
-QPushButton:focus { background-color: #b0b0b0; border: 2px solid #ffffff; outline: none; }
-QPushButton#ActiveProfile, QPushButton#ActiveWorkspace { background-color: #f4dcba; color: rgba(74, 74, 74, 0.6); font-weight: bold; border: 1px solid #ffffff; font-family: 'JetBrains Mono'; font-size: 14px; }
-QPushButton#ActiveWorkspace:focus { border: 2px solid #ffffff; }
-QPushButton#TaskItem { font-size: 12px; padding: 4px 6px; min-width: 70px; background-color: rgba(74, 74, 74, 0.6); border-color: #f4dcba; color: #ffffff; font-family: 'JetBrains Mono'; }
-QPushButton#TaskItem:focus { border: 2px solid #ffffff; }
-QPushButton#ToolButton { font-size: 16px; padding: 10px; background-color: rgba(74, 74, 74, 0.6); border-color: #f4dcba; color: #ffffff; font-family: 'JetBrains Mono'; }
-QPushButton#ToolButton:focus { border: 2px solid #ffffff; }
+QListWidget::item:selected { background-color: #f4dcba; color: rgba(0, 0, 0, 0.4); font-weight: bold; font-family: 'JetBrains Mono'; }
+QPushButton { background-color: rgba(0, 0, 0, 0.4); border: 1px solid #f4dcba; color: #e0e6ed; padding: 8px; font-family: 'JetBrains Mono'; font-size: 14px; border-radius: 4px; }
+QPushButton:hover { background-color: #222222; border-color: #e0e6ed; }
+QPushButton:focus { background-color: #b0b0b0; border: 2px solid #e0e6ed; outline: none; }
+QPushButton#ActiveProfile, QPushButton#ActiveWorkspace { background-color: #f4dcba; color: rgba(0, 0, 0, 0.4); font-weight: bold; border: 1px solid #e0e6ed; font-family: 'JetBrains Mono'; font-size: 14px; }
+QPushButton#ActiveWorkspace:focus { border: 2px solid #e0e6ed; }
+QPushButton#TaskItem { font-size: 12px; padding: 4px 6px; min-width: 70px; background-color: rgba(0, 0, 0, 0.4); border-color: #f4dcba; color: #e0e6ed; font-family: 'JetBrains Mono'; }
+QPushButton#TaskItem:focus { border: 2px solid #e0e6ed; }
+QPushButton#ToolButton { font-size: 16px; padding: 10px; background-color: rgba(0, 0, 0, 0.4); border-color: #f4dcba; color: #e0e6ed; font-family: 'JetBrains Mono'; }
+QPushButton#ToolButton:focus { border: 2px solid #e0e6ed; }
 QPushButton#ToolButton[connected='true'] { color: #52fa69; }
 QPushButton#ToolButton[objectName='ToolButton'][id='bt'][connected='true'] { color: #3b82f6; }
-QPushButton#ToolButton[connected='false'] { color: #ffffff; }
+QPushButton#ToolButton[connected='false'] { color: #e0e6ed; }
 QPushButton#ToolButton[connected='wifi_on'] { color: #52fa69; }
 QPushButton#ToolButton[connected='bt_on'] { color: #3b82f6; }
 QPushButton#ToolButton[connected='wifi'] { color: #52fa69; }
 QPushButton#ToolButton[connected='bluetooth'] { color: #3b82f6; }
-QPushButton#ToolButton[connected='none'] { color: #ffffff; }
-QPushButton#PowerBtn_󰐥 { font-size: 16px; background-color: rgba(74, 74, 74, 0.6); border-color: #f4dcba; color: #ff5555; font-family: 'JetBrains Mono'; }
-QPushButton#PowerBtn_󰑐 { font-size: 16px; background-color: rgba(74, 74, 74, 0.6); border-color: #f4dcba; color: #21ab00; font-family: 'JetBrains Mono'; }
-QPushButton#PowerBtn_󰤄 { font-size: 16px; background-color: rgba(74, 74, 74, 0.6); border-color: #f4dcba; color: #bd93f9; font-family: 'JetBrains Mono'; }
-QPushButton#PowerBtn_󰈆 { font-size: 16px; background-color: rgba(74, 74, 74, 0.6); border-color: #f4dcba; color: #8be9fd; font-family: 'JetBrains Mono'; }
-QPushButton#PowerBtn_󰖔 { font-size: 16px; background-color: rgba(74, 74, 74, 0.6); border-color: #f4dcba; color: #ffb86c; font-family: 'JetBrains Mono'; }
-QPushButton[objectName^='PowerBtn_']:focus { border: 2px solid #ffffff; }
+QPushButton#ToolButton[connected='none'] { color: #e0e6ed; }
+QPushButton#PowerBtn_󰐥 { font-size: 16px; background-color: rgba(0, 0, 0, 0.4); border-color: #f4dcba; color: #ff5555; font-family: 'JetBrains Mono'; }
+QPushButton#PowerBtn_󰑐 { font-size: 16px; background-color: rgba(0, 0, 0, 0.4); border-color: #f4dcba; color: #21ab00; font-family: 'JetBrains Mono'; }
+QPushButton#PowerBtn_󰤄 { font-size: 16px; background-color: rgba(0, 0, 0, 0.4); border-color: #f4dcba; color: #bd93f9; font-family: 'JetBrains Mono'; }
+QPushButton#PowerBtn_󰈆 { font-size: 16px; background-color: rgba(0, 0, 0, 0.4); border-color: #f4dcba; color: #8be9fd; font-family: 'JetBrains Mono'; }
+QPushButton#PowerBtn_󰖔 { font-size: 16px; background-color: rgba(0, 0, 0, 0.4); border-color: #f4dcba; color: #ffb86c; font-family: 'JetBrains Mono'; }
+QPushButton[objectName^='PowerBtn_']:focus { border: 2px solid #e0e6ed; }
 QProgressBar { border: none; background-color: #111111; height: 4px; border-radius: 5px; color: transparent; }
 QProgressBar::chunk { background-color: #f4dcba; border-radius: 5px; }
 QSlider::groove:horizontal { border: none; height: 4px; background: #333333; }
@@ -42,4 +42,4 @@ QScrollBar { border: none; background: #000000; width: 8px; height: 8px; margin:
 QScrollBar::handle { background: #333333; min-height: 20px; min-width: 20px; border-radius: 4px; }
 QScrollBar::handle:hover { background: #f4dcba; }
 
-:root { --clock-bg: rgba(74, 74, 74, 0.6); --clock-fg: #f4dcba; }
+:root { --clock-bg: rgba(0, 0, 0, 0.4); --clock-fg: #f4dcba; }

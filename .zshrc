@@ -55,9 +55,9 @@ PROMPT='%F{blue}%~%f${vcs_info_msg_0_}
 %(?.%F{magenta}❯%f.%F{red}❯%f) '
 RPROMPT='%F{spatial}%D{%H:%M}%f %(?.%F{green}✓.%F{red}✗ %?)%f'
 
-figlet -f smslant Welcome Back - Rk 1
-kitten icat --align left ~/Pictures/Fastfetch/cover.png
-# kitten icat --align left ~/Pictures/Fastfetch/anime-kitty.png
+# figlet -f smslant Welcome Back - Rk 1
+# kitten icat --align left ~/Pictures/Fastfetch/cover.png
+kitten icat --align left ~/Pictures/Fastfetch/anime-kitty.png
 
 # --- User Configuration ---
 export LANG=en_GB.UTF-8
@@ -97,7 +97,6 @@ dotsync() {
     rsync -a --delete ~/custom-scripts/ ~/dotfiles/custom-scripts/
     cp ~/.zshrc ~/dotfiles/.zshrc
     cp ~/.bashrc ~/dotfiles/.bashrc
-    cp ~/.current_theme ~/dotfiles/.current_theme
 
     # GitHub Upload
     cd ~/dotfiles || return
@@ -155,10 +154,8 @@ setopt autocd
 setopt EXTENDED_HISTORY
 
 # --- Startup ---
-echo "󱓞 System Version: Main"
-if [[ -o interactive && "$TERM" =~ "foot|xterm-kitty" ]]; then
-    python3 "$HOME/custom-scripts/Dashboard/dashboard.py"
-fi
+echo "󱓞 System Version: Rk1"
+
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
 export PATH="$HOME/.local/bin:$PATH"

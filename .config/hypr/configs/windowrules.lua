@@ -339,6 +339,7 @@ local rules = {
             size = {1595, 1046},
             move = {5, 10},
             border_size = 1,
+            opacity = 0.9,
             no_blur = true
         },
         {
