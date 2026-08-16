@@ -139,6 +139,7 @@ webkitgtk-6.0
 webp-pixbuf-loader
 wev
 wf-recorder
+windscribe-cli
 wireless_tools
 wireplumber
 wl-clipboard
