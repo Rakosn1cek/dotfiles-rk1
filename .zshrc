@@ -198,3 +198,21 @@ gchat() {
     # Return to the original directory
     popd > /dev/null
 }
+# --- Kitty Windows Control Function ---
+# Dispatch commands to a specified Kitty target window
+to() {
+  if (( $# < 2 )); then
+    print "Usage: to <target> <command ...>"
+    return 1
+  fi
+
+  local target="$1"
+  shift
+  local cmd="$*"
+
+  # Match by custom user variable
+  kitty @ send-text --match "var:win_id=${target}" "${cmd}\r"
+}
+2() { to win2 "$@"; }
+3() { to win3 "$@"; }
+4() { to win4 "$@"; }

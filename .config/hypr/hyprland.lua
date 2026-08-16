@@ -118,7 +118,7 @@ hl.workspace_rule({
 
 hl.workspace_rule({ 
     workspace = "2", 
-    layout = "dwindle",
+    layout = "master",
     default_name = "Terminals"
 })
 

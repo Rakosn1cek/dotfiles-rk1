@@ -279,8 +279,6 @@ local rules = {
             match = { class = "kitty" },
             workspace = 2,
             float = true,
-            size = {1595, 1046},
-            move = {5, 10},
             border_size = 2,
             animation = "gnomed",
             no_blur = true
