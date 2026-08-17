@@ -41,7 +41,8 @@ from gi.repository import Gtk, Gdk, GLib, Gtk4LayerShell
 
 # --- Configuration (unchanged from dashboard.py) ---
 VERSION = "1.8.5"
-BACKUP_DIR = os.path.expanduser("~/dotfiles")
+# BACKUP_DIR = os.path.expanduser("~/dotfiles")
+BACKUP_DIR = os.path.expanduser("~/Rk1-dots")
 TASKS_JSON = os.path.expanduser("~/.local/share/arch_task_manager/tasks.json")
 SYNC_CACHE = os.path.expanduser("~/.cache/last_synced")
 

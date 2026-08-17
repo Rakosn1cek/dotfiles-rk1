@@ -34,5 +34,6 @@ Thumbs.db
 # --- Custom-Scripts ---
 ~/dotfiles/shell-common/custom-scripts/RTM
 ~/dotfiles/shell-common/custom-scripts/Budget-Buddy
-custom-scripts/pass
-custom-scripts/current-theme.css
+**/custom-scripts/pass
+**/custom-scripts/current-theme.css
+**/.config/kitty/kitty.conf.bak

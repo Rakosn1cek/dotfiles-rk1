@@ -56,6 +56,7 @@ hl.config({
         new_status = "slave",
         new_on_active = "none",
         new_on_top = false,
+        smart_resizing = true,
         mfact = 0.55,
         orientation = "left",
         special_scale_factor = 1.0,

@@ -63,7 +63,7 @@ cursor_beam_thickness      1.5
 
 
 # BEGIN_KITTY_THEME
-# Custom Light
+# Retrowave Light
 include current-theme.conf
 # END_KITTY_THEME
 
@@ -74,4 +74,5 @@ shell_integration        no-cursor
 
 # ── Allow external control sequences over local unix sockets ──────────────────────
 allow_remote_control yes
-listen_on unix:/tmp/kitty.sock
+# listen_on unix:/tmp/kitty.sock
+listen_on unix:@kitty
