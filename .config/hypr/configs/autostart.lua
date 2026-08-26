@@ -26,11 +26,11 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd("~/arch-projects/MiseBrowser/launch.sh")
     
     -- Start Terminal on workspace 2
-    hl.exec_cmd("kitty")
+    -- hl.exec_cmd("kitty")
 
     -- Choice of editor for workspace 3
     -- hl.exec_cmd("geany")
-    hl.exec_cmd("kitty --class yazi -e yazi")
+    -- hl.exec_cmd("kitty --class yazi -e yazi")
 
     -- Clock + Conky Widgets
     hl.exec_cmd("python3 ~/custom-scripts/Python-Widgets/desktop-clock.py")

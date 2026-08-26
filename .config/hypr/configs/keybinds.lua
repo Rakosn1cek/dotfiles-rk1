@@ -24,6 +24,7 @@ hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("kitty --class cal -e ~/custom-script
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("python3 /home/rk1/custom-scripts/Python-Widgets/changewall-widget.py"))
 hl.bind(mainMod .. " + 0", hl.dsp.exec_cmd("python3 /home/rk1/custom-scripts/Control-Panel/theme-widget.py"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("kitty --class bt-menu -e $HOME/custom-scripts/bluetooth/bt"))
+hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("kitty --class bt-manager --title 'Bluetooth Manager' python3 $HOME/custom-scripts/bluetooth/bt-inspect.py"))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("hyprpicker -a -f hex"))
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("kitty --class 'Audio Switcher' -e ~/custom-scripts/Shell-Widgets/change-audio.sh"))
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("kitty --class notif -e ~/custom-scripts/Shell-Widgets/notif.sh"))
@@ -34,6 +35,7 @@ hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("python3 $HOME/custom-scripts/Control
 
 hl.bind(altMod .. " + Z", hl.dsp.exec_cmd("python3 $HOME/custom-scripts/Control-Panel/control-panel.py"))
 hl.bind(altMod .. " + W", hl.dsp.exec_cmd("kitty --class floating_wifi -e ~/custom-scripts/wifi/wwifi"))
+hl.bind(altMod .. " + SHIFT + W", hl.dsp.exec_cmd("kitty --class wifi-widget -e python3 $HOME/custom-scripts/wifi/wifi-widget.py"))
 hl.bind(altMod .. " + M", hl.dsp.exec_cmd("kitty --class music --app-id=music kew"))
 hl.bind(altMod .. " + R", hl.dsp.exec_cmd("kitty --class 'Mirec' -e $HOME/arch-projects/MIREC/mirec"))
 hl.bind(altMod .. " + C", hl.dsp.exec_cmd("kitty --class clipbox -e ~/custom-scripts/Shell-Widgets/clipbox.sh"))

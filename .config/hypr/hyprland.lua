@@ -2,7 +2,7 @@
 -- Configuration based on official migration guidelines
 
 -- 1. Environment Variables
-hl.env("GDK_BACKEND", "wayland")
+hl.env("GDK_BACKEND", "wayland,x11,*")
 hl.env("QT_QPA_PLATFORM", "wayland;xcb")
 hl.env("CLUTTER_BACKEND", "wayland")
 hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
@@ -48,9 +48,15 @@ hl.config({
         disable_hyprland_logo = true
     },
     general = {
-        gaps_in = 15,
-        gaps_out = 15,
-        layout = "master"
+        border_size = 3,
+        gaps_in = 5,
+        gaps_out = 5,
+        layout = "master",
+        ["col.active_border"] = {
+            colors = { "rgba(0, 242, 255, 1)", "rgba(44, 219, 0, 1)" },
+            angle = 45,
+        },
+        ["col.inactive_border"] = "rgba(219, 0, 26, 1)",
     },
     master = {
         new_status = "slave",
@@ -83,7 +89,7 @@ hl.config({
     decoration = {
         rounding = 10,
         active_opacity = 1,
-        inactive_opacity = 1.0,
+        inactive_opacity = 1,
         fullscreen_opacity = 1,
         blur = {
             enabled = true,
@@ -91,7 +97,7 @@ hl.config({
             passes = 4,
         },
         shadow = {
-            enabled = true,
+            enabled = false,
             range = 15,
             render_power = 4,
         }
@@ -112,14 +118,13 @@ hl.animation({ leaf = "layers",     enabled = true, speed = 15, bezier = "myBezi
 -- Use workspace_rule instead of hl.workspace
 hl.workspace_rule({ 
     workspace = "1", 
-    layout = "scrolling",
-    default_name = "Browsers",
-    layout_opts = { direction = "down" } 
+    layout = "master",
+    default_name = "Browsers", 
 })
 
 hl.workspace_rule({ 
     workspace = "2", 
-    layout = "master",
+    layout = "dwindle",
     default_name = "Terminals"
 })
 
@@ -142,7 +147,7 @@ hl.gesture({
 
 
 -- 5. Module Imports
--- Ensure these files exist as .lua in your configs folder
+-- Ensure these files exist as .lua in your configs/modules folders
 require("configs.autostart")
 require("configs.keybinds")
 require("configs.windowrules")

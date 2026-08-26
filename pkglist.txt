@@ -95,6 +95,7 @@ podman
 polkit-kde-agent
 powertop
 pulseaudio-alsa
+python-bleak
 python-cairo
 python-docs
 python-pip
@@ -112,6 +113,7 @@ rclone
 reflector
 resvg
 rust
+rust-analyzer
 sddm
 sddm-sugar-candy-git
 shellcheck-bin
@@ -130,7 +132,6 @@ ufw
 unzip
 uwsm
 viewnior
-vim
 vulkan-intel
 vulkan-nouveau
 vulkan-radeon

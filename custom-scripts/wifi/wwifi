@@ -2,7 +2,7 @@
 
 # --------------------------------------------------------------------------------------
 # WIFI CONNECTION FZF WIDGET SCRIPT
-# Version: v0.1.0
+# Version: v0.2.0
 # Created by Lukas Grumlik - (Rakosn1cek)
 # April 2026
 # --------------------------------------------------------------------------------------
@@ -14,38 +14,79 @@ if ! command -v nmcli &> /dev/null || ! command -v fzf &> /dev/null; then
 fi
 
 HEADER_TEXT="
-	   󰖩  WIFI CONNECTION v0.1.0
+	   󰖩  WIFI CONNECTION v0.2.0
 	Minimalist wi-fi connection widget
 
-Select WiFi Network ESC to quit
+Enter: Connect | Ctrl-D: Disconnect | Ctrl-R: Rescan | ESC: Quit
+Select WiFi Network
 "
-# Using a tab character as a delimiter to keep columns separate but easy to parse
-# The --fields order for the 'cut' command later
-selected_network=$(nmcli --terse --fields "SSID,BARS,SECURITY,IN-USE" device wifi list | \
-    grep -v "^:" | \
-    sed 's/:/\t/g' | \
-    fzf --height 100% \
-        --reverse \
-        --border rounded \
-        --header "$HEADER_TEXT" \
-        --header-first \
-        --color="header:#565f89,prompt:#565f89" \
-        --info inline \
-        --tabstop=20 \
+
+# Function to fetch and format wifi list
+get_wifi_list() {
+    # Ensure network list is up to date
+    nmcli device wifi rescan &> /dev/null
+    nmcli --terse --fields "IN-USE,SSID,BARS,SECURITY" device wifi list | \
+        awk -F':' '{
+            in_use = ($1 == "*") ? "*" : " ";
+            ssid = $2;
+            bars = $3;
+            sec = ($4 == "") ? "OPEN" : $4;
+            if (ssid != "") {
+                printf "%s\t%-30s\t%-6s\t%s\n", in_use, ssid, bars, sec;
+            }
+        }'
+}
+
+# Run fzf with reload keybind and custom actions
+selected_network=$(get_wifi_list | fzf \
+    --height 100% \
+    --reverse \
+    --border rounded \
+    --header "$HEADER_TEXT" \
+    --header-first \
+    --color="header:#565f89,prompt:#565f89" \
+    --info inline \
+    --tabstop=4 \
+    --expect=ctrl-d,ctrl-r \
 )
 
 # Exit if no selection was made
 [ -z "$selected_network" ] && exit
 
-# Extract the SSID by taking everything before the first tab
-ssid=$(echo "$selected_network" | cut -f1)
+# Parse keypress and selection
+key=$(echo "$selected_network" | head -n1)
+target_line=$(echo "$selected_network" | tail -n1)
 
-# Check if the connection profile already exists
-if nmcli connection show | grep -q "$ssid"; then
+# Exit if selection is empty after parsing
+[ -z "$target_line" ] && exit
+
+# Extract fields safely using tab separation
+in_use=$(echo "$target_line" | cut -f1 | tr -d ' ')
+ssid=$(echo "$target_line" | cut -f2 | sed 's/[[:space:]]*$//')
+security=$(echo "$target_line" | cut -f4)
+
+# Handle disconnect hotkey
+if [ "$key" = "ctrl-d" ]; then
+    echo "Disconnecting from $ssid..."
+    nmcli connection down "$ssid" 2>/dev/null || nmcli device disconnect wlan0
+    exit 0
+fi
+
+# Connect logic
+if [ "$in_use" = "*" ]; then
+    echo "Already connected to $ssid."
+    exit 0
+fi
+
+if nmcli connection show | grep -Fq "$ssid"; then
+    echo "Connecting to saved network: $ssid"
     nmcli connection up "$ssid" --ask
+elif [ "$security" = "OPEN" ]; then
+    echo "Connecting to open network: $ssid"
+    nmcli device wifi connect "$ssid"
 else
     echo "New network detected: $ssid"
     read -rs -p "Enter Password: " password
-    echo "" 
+    echo ""
     nmcli device wifi connect "$ssid" password "$password"
 fi

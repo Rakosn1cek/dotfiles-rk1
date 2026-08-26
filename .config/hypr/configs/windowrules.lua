@@ -3,6 +3,16 @@
 
 local rules = {
     widgets = {
+		{   name = "Bluetooth Manager",
+			match = { class = "bt-manager"},
+			float = true,
+			center = true,
+			size = {1200, 900},
+			opacity = 0.8,
+			animation = "popin 20%",
+			no_blur = true
+		},
+
         {
             name = "Power menu",
             match = { title = "powermenu.py" },
@@ -17,8 +27,6 @@ local rules = {
             float = true,
             size = {750, 650},
             move = {585, 1},
-            border_size = 2,
-            border_color = "rgb(767b7e)",
             opacity = 0.8,
             animation = "slide top"
         },
@@ -28,8 +36,6 @@ local rules = {
             float = true,
             size = {750, 650},
             move = {585, 1},
-            border_size = 2,
-            border_color = "rgb(767b7e)",
             opacity = 0.8,
             animation = "slide top"
         },
@@ -39,8 +45,6 @@ local rules = {
             float = true,
             center = true,
             size = {1100, 700},
-            border_size = 2,
-            border_color = "rgb(767b7e)",
             opacity = 0.8,
             animation = "gnomed",
             no_blur = false
@@ -51,8 +55,6 @@ local rules = {
             float = true,
             size = {500, 250},
             move = {710, 0},
-            border_size = 2,
-            border_color = "rgb(767b7e)",
             opacity = 0.8,
             animation = "slide top"
         },
@@ -62,8 +64,6 @@ local rules = {
             float = true,
             size = {500, 300},
             move = {5, 1},
-            border_size = 2,
-            border_color = "rgb(767b7e)",
             opacity = 0.8,
             animation = "slide left"
         },
@@ -73,8 +73,6 @@ local rules = {
             float = true,
             size = {600, 400},
             move = {660, 0},
-            border_size = 2,
-            border_color = "rgb(767b7e)",
             opacity = 0.8,
             animation = "slide top"
         },
@@ -82,10 +80,17 @@ local rules = {
             name = "wifi-widget",
             match = { class = "floating_wifi" },
             float = true,
-            size = {700, 400},
-            move = {560, 1},
-            border_size = 2,
-            border_color = "rgb(767b7e)",
+            size = {700, 500},
+            move = {560, 0},
+            opacity = 0.8,
+            animation = "slide top"
+        },
+        {
+            name = "wifi-widget2",
+            match = { class = "wifi-widget" },
+            float = true,
+            size = {900, 500},
+            move = {560, 5},
             opacity = 0.8,
             animation = "slide top"
         },
@@ -95,8 +100,6 @@ local rules = {
             float = true,
             size = {550, 350},
             move = {5, 0},
-            border_size = 2,
-            border_color = "rgb(767b7e)",
             opacity = 0.8,
             animation = "slide left"
         },
@@ -106,8 +109,6 @@ local rules = {
             float = true,
             size = {500, 450},
             move = {1415, 0},
-            border_size = 2,
-            border_color = "rgb(767b7e)",
             opacity = 0.8,
             animation = "slide right"
         },
@@ -116,7 +117,6 @@ local rules = {
             match = { class = "changewall-widget.py" },
             float = true,
             move = {355, 830},
-            border_size = 0,
             animation = "gnomed"
         },
         {
@@ -125,7 +125,6 @@ local rules = {
             float = true,
             center = true,
             size = {550, 340},
-            border_size = 0,
             animation = "gnomed"
         },
         {
@@ -134,7 +133,6 @@ local rules = {
             float = true,
             size = {400, 500},
             move = {1515, 1},
-            border_size = 0,
             opacity = 0.8,
             animation = "slide right",
             no_max_size = true
@@ -145,8 +143,6 @@ local rules = {
             float = true,
             center = true,
             size = {450, 120},
-            border_size = 2,
-            border_color = "rgb(767b7e)",
             opacity = 0.8,
             animation = "gnomed"
         },
@@ -156,8 +152,6 @@ local rules = {
             float = true,
             center = true,
             size = {500, 200},
-            border_size = 2,
-            border_color = "rgb(ff0008)",
             opacity = 0.8,
             animation = "gnomed"
         },
@@ -167,8 +161,6 @@ local rules = {
             float = true,
             size = {740, 780},
             move = {600, 3},
-            border_size = 2,
-            border_color = "rgb(767b7e)",
             opacity = 0.8,
             animation = "slide top"
         },
@@ -178,8 +170,6 @@ local rules = {
             float = true,
             size = {800, 880},
             move = {550, 3},
-            border_size = 2,
-            border_color = "rgb(767b7e)",
             opacity = 0.8,
             animation = "slide top"
         }
@@ -191,8 +181,6 @@ local rules = {
             float = true,
             center = true,
             size = {1000, 450},
-            border_size = 2,
-            border_color = "rgb(767b7e)",
             opacity = 0.8,
             animation = "gnomed"
         },
@@ -202,8 +190,6 @@ local rules = {
             float = true,
             size = {900, 450},
             move = {500, 2},
-            border_size = 2,
-            border_color = "rgb(767b7e)",
             opacity = 0.8,
             animation = "slide down"
         },
@@ -213,8 +199,6 @@ local rules = {
             float = true,
             size = {800, 400},
             move = {600, 2},
-            border_size = 2,
-            border_color = "rgb(767b7e)",
             opacity = 0.8,
             animation = "slide top"
         },
@@ -232,7 +216,6 @@ local rules = {
             size = {500, 500},
             move = {700, 5},
             stay_focused = true,
-            border_size = 0,
             animation = "slide top"
         },
         {
@@ -250,7 +233,6 @@ local rules = {
             float = true,
             center = true,
             size = {800, 400},
-            border_size = 0,
             opacity = 0.8,
             animation = "gnomed"
         },
@@ -271,14 +253,12 @@ local rules = {
             float = true,
             center = true,
             size = {1000, 850},
-            border_size = 0,
             opacity = 0.9
         },
         {
             name = "kitty",
             match = { class = "kitty" },
             float = false,
-            border_size = 2,
             animation = "gnomed",
             no_blur = true
         },
@@ -288,7 +268,6 @@ local rules = {
             float = false,
             size = {1595, 1046},
             move = {5, 10},
-            border_size = 0,
             opacity = 0.8,
             no_blur = true
         },
@@ -299,7 +278,6 @@ local rules = {
             float = true,
             size = {1395, 700},
             move = {5, 10},
-            border_size = 2,
             opacity = 0.95,
             animation = "gnomed",
             no_blur = true
@@ -308,7 +286,6 @@ local rules = {
             name = "geany-rule",
             match = { class = "geany" },
             workspace = 5,
-            border_size = 0,
             opacity = 0.9,
             animation = "fade"
         },
@@ -316,7 +293,6 @@ local rules = {
             name = "qalculate-rule",
             match = { class = "qalculate-gtk" },
             size = {600, 400},
-            border_size = 0,
             opacity = 0.9,
             animation = "slide top"
         },
@@ -324,8 +300,7 @@ local rules = {
             name = "min-browser",
             match = { class = "min" },
             workspace = 1,
-            float = true,
-            border_size = 2,
+            float = false,
             opacity = "0.8 override"
         },
         {
@@ -335,8 +310,7 @@ local rules = {
             float = false,
             size = {1595, 1046},
             move = {5, 10},
-            border_size = 1,
-            opacity = 0.9,
+            opacity = 0.95,
             no_blur = true
         },
         {
@@ -349,7 +323,6 @@ local rules = {
         {
             name = "magic-workspace-fallback-rule",
             match = { workspace = "special:magic" },
-            border_size = 1,
             border_color = "rgb(ffff00)"
         }
     },
@@ -371,9 +344,9 @@ local rules = {
             blur = false
         },
         {
-        	name = "Dashboard Widget",
-        	match = { namespace = "dashboard-widget" },
-        	blur = false 	
+            name = "Dashboard Widget",
+            match = { namespace = "dashboard-widget" },
+            blur = false
         }
     }
 }

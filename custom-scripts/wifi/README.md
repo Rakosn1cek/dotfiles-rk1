@@ -18,6 +18,8 @@ Depending on how the system network layer is configured, choose the script that 
 * **How it works:** Communicates directly with the lightweight Intel wireless engine. It handles formatting anomalies caused by `iwctl` stream pipes, stripping raw ANSI escape color codes and parsing complex network names (including those with spaces) from right to left.
 * **Active Status:** Leverages a hybrid check against local hardware tables to map out network availability smoothly.
 
+### 3. The Python `nmcli` (`wifi-widget.py`)
+* This widget is still in development but works. **Use at your own risk**
 ---
 
 ## Dependencies
@@ -26,6 +28,7 @@ Ensure the following utilities are installed via the system package manager befo
 * `fzf` (The core interactive menu selector)
 * `networkmanager` (For the `nmcli` script)
 * `iwd` (For the `iwctl` script)
+* `python` (If you want to use the Python widget)
 
 ### Creating a widget style pop/slide in
 

@@ -16,17 +16,16 @@ STATE_FILE="$HOME/.cache/current_theme"
 themes=(
     "Custom Dark"
     "Custom Light"
+    "Custom Spring"
+    "Custom Retrowave Light"
     "Gruvbox Dark Hard"
     "Gruvbox Light"
     "E-Ink"
     "E-Ink Dark"
-    "Dumbledore"
+    "Material"
     "Hachiko"
-    "Vesper"
     "Glossy Light"
-    "Retrowave Light"
     "Hacker Movie"
-    "Grass"
 )
 
 # Pipe it into fzf for interactive selection

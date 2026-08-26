@@ -112,13 +112,82 @@ def find_wallpapers():
             seen.add(f); result.append(f)
     return result
 
+def extract_wall_color(path):
+    """Samples pixel colours directly from thumbnail."""
+    try:
+        pb = load_thumbnail(path)
+        if pb is None:
+            pb = GdkPixbuf.Pixbuf.new_from_file_at_scale(path, 64, 64, True)
+            
+        if pb is not None:
+            grid = pb.scale_simple(16, 16, GdkPixbuf.InterpType.BILINEAR)
+            pixels = grid.get_pixels()
+            n_channels = grid.get_n_channels()
+            rowstride = grid.get_rowstride()
+            
+            best_color = None
+            max_saturation = -1.0
+            avg_r, avg_g, avg_b = 0, 0, 0
+            count = 0
+
+            for y in range(16):
+                row = pixels[y * rowstride : (y + 1) * rowstride]
+                for x in range(16):
+                    idx = x * n_channels
+                    r, g, b = row[idx], row[idx+1], row[idx+2]
+                    avg_r += r
+                    avg_g += g
+                    avg_b += b
+                    count += 1
+                    
+                    mx, mn = max(r, g, b), min(r, g, b)
+                    sat = 0.0 if mx == 0 else (mx - mn) / mx
+                    
+                    if 20 < mx < 240 and sat > max_saturation:
+                        max_saturation = sat
+                        best_color = (r, g, b)
+
+            if not best_color or max_saturation < 0.08:
+                r, g, b = avg_r // count, avg_g // count, avg_b // count
+                shift = -50 if r > 128 else 50
+                r2 = max(0, min(255, r + shift))
+                g2 = max(0, min(255, g + shift))
+                b2 = max(0, min(255, b + shift))
+            else:
+                r, g, b = best_color
+                r2 = (r + 40) % 255
+                g2 = (g + 80) % 255
+                b2 = (b + 120) % 255
+
+            col1 = f"0xff{r:02x}{g:02x}{b:02x}"
+            col2 = f"0xff{r2:02x}{g2:02x}{b2:02x}"
+            return col1, col2
+    except Exception:
+        pass
+    return "0xff767b7e", "0xff222222"
+
 def apply_wallpaper(path, status_cb, done_cb):
     name = os.path.basename(path)
     GLib.idle_add(status_cb, f"󰐍  Switching to {name}...")
+    
+    col1, col2 = extract_wall_color(path)
+
     # awww transition logic
     subprocess.Popen(['awww', 'img', path, '--transition-type', 'fade', 
                         '--transition-pos', 'left', '--transition-fps', '120',
                         '--transition-step', '150'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+    # Cache colours for session persistence and Lua module reading
+    cache_file = os.path.expanduser("~/.cache/hypr_border_colors.conf")
+    try:
+        with open(cache_file, "w") as f:
+            f.write(f"{col1},{col2}\n")
+    except Exception:
+        pass
+
+    # Trigger compositor reload to execute adaptive-borders.lua with updated palette
+    subprocess.run(['hyprctl', 'reload'], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
     GLib.idle_add(status_cb, f"✓  Active: {name}")
     GLib.idle_add(done_cb)
 
